@@ -1,0 +1,3057 @@
+{
+	"info": {
+		"_postman_id": "0bf2b27b-10dd-4ffa-91d2-dfba08db4bfe",
+		"name": "Safrah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23942854"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"admin\",\r\n    \"lastName\":\"1\",\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin@123456\",\r\n    \"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/signup",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"JWT\", pm.response.json().token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"admin@admin.com\",\r\n    \"password\":\"admin@123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Department",
+			"item": [
+				{
+					"name": "Add Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"برامج القراءات\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/department/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/department/all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/department/one/652f9c44e7d50fc347b0aea9",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"one",
+								"652f9c44e7d50fc347b0aea9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/department/update/652f9c44e7d50fc347b0aea9",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"update",
+								"652f9c44e7d50fc347b0aea9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Department",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/department/delete/652f9c44e7d50fc347b0aea9",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"department",
+								"delete",
+								"652f9c44e7d50fc347b0aea9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Program",
+			"item": [
+				{
+					"name": "Add Program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID\":88,\r\n    \"name\":\"لتالوة القرآن\",\r\n    \"department\":\"652f9c44e7d50fc347b0aea9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/program/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"program",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Programs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/program/all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"program",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/program/one/655339c66d1d51d0508a255d",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"program",
+								"one",
+								"655339c66d1d51d0508a255d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"ID\": 912\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/program/update/652fa018d4f82f5dd5259bad",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"program",
+								"update",
+								"652fa018d4f82f5dd5259bad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Program",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/program/delete/652fa018d4f82f5dd5259bad",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"program",
+								"delete",
+								"652fa018d4f82f5dd5259bad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Add Student To Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "ID",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Mahmoud",
+									"type": "text"
+								},
+								{
+									"key": "idNationality",
+									"value": "89630220",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "programId",
+									"value": "88",
+									"type": "text"
+								},
+								{
+									"key": "degree",
+									"value": "80",
+									"type": "text"
+								},
+								{
+									"key": "evaluation",
+									"value": "جيد",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/pdfs شرح js بالعربى/JS (Part 4).pdf"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "courses[1][courseId]",
+									"value": "911",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[1][degree]",
+									"value": "80",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "courses[1][evaluation]",
+									"value": "+B",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/student/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Program Students",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/student/get/data?ID=70",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"get",
+								"data"
+							],
+							"query": [
+								{
+									"key": "ID",
+									"value": "70"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data Of Student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "ID",
+									"value": "765",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/student/update?ID=502&programId=88",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"update"
+							],
+							"query": [
+								{
+									"key": "ID",
+									"value": "502"
+								},
+								{
+									"key": "programId",
+									"value": "88"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/student/delete?ID=1918&programId=913",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "ID",
+									"value": "1918"
+								},
+								{
+									"key": "programId",
+									"value": "913"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/student/get/one/65537e87b5df49a1911927d0/progId/65533af3a8577af82e39be5a",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"get",
+								"one",
+								"65537e87b5df49a1911927d0",
+								"progId",
+								"65533af3a8577af82e39be5a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/student/get/all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"student",
+								"get",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "External Conversion",
+			"item": [
+				{
+					"name": "Send External Conversion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "محمود ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mh15721812@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "nationality",
+									"value": "مصر ",
+									"type": "text"
+								},
+								{
+									"key": "ID",
+									"value": "12345678950620324",
+									"type": "text"
+								},
+								{
+									"key": "association",
+									"value": "جمعية الصفا الخيرية",
+									"type": "text"
+								},
+								{
+									"key": "seamsterYear",
+									"value": "القش",
+									"type": "text"
+								},
+								{
+									"key": "academicYear",
+									"value": "2024",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "جمعية الدراسات القرانية",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "مزاجى كده ",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01165235658",
+									"type": "text"
+								},
+								{
+									"key": "imageId",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/aboutCourse.png"
+								},
+								{
+									"key": "previousCertificateImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-03-22 224835.png"
+								},
+								{
+									"key": "academicIdImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-07-18 150259.png"
+								},
+								{
+									"key": "paymentReceiptImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-03-22 224835.png"
+								},
+								{
+									"key": "from",
+									"value": "566نتت",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "يسشيسشي",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/external-conversion/send",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"external-conversion",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delay Study",
+			"item": [
+				{
+					"name": "Send Delay Study",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "محمود ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mh15721812@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "seamsterPaymentName",
+									"value": "الجميةا سشي شيسيسش",
+									"type": "text"
+								},
+								{
+									"key": "ID",
+									"value": "12345678950620324",
+									"type": "text"
+								},
+								{
+									"key": "educationalPath",
+									"value": "جمعية الصفا الخيرية",
+									"type": "text"
+								},
+								{
+									"key": "seamsterYear",
+									"value": "545شيسيسشيسش",
+									"type": "text"
+								},
+								{
+									"key": "academicYear",
+									"value": "2024",
+									"type": "text"
+								},
+								{
+									"key": "numAcademic",
+									"value": "45596655598",
+									"type": "text"
+								},
+								{
+									"key": "priceOfDelay",
+									"value": "55200",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01165235658",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "مصر",
+									"type": "text"
+								},
+								{
+									"key": "imageId",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-02-19 183647.png"
+								},
+								{
+									"key": "proveImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-03-22 224835.png"
+								},
+								{
+									"key": "paymentReceiptImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/supported.png"
+								},
+								{
+									"key": "nameSeamsterOfDelay",
+									"value": "dasdsa",
+									"type": "text"
+								},
+								{
+									"key": "nameAcademicOfDelay",
+									"value": "2015",
+									"type": "text"
+								},
+								{
+									"key": "twoYears",
+									"value": "addada",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "dasadada",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/delay-study/send",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"delay-study",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Withdrawal Request",
+			"item": [
+				{
+					"name": "Send Withdrawal Requiest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "محمود ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mh15721812@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "seamsterPaymentName",
+									"value": "الجميةا سشي شيسيسش",
+									"type": "text"
+								},
+								{
+									"key": "ID",
+									"value": "12345678950620324",
+									"type": "text"
+								},
+								{
+									"key": "educationalPath",
+									"value": "جمعية الصفا الخيرية",
+									"type": "text"
+								},
+								{
+									"key": "seamsterYear",
+									"value": "2015",
+									"type": "text"
+								},
+								{
+									"key": "academicYear",
+									"value": "2024",
+									"type": "text"
+								},
+								{
+									"key": "numAcademic",
+									"value": "45596655598",
+									"type": "text"
+								},
+								{
+									"key": "priceOfWithdrawalRequest",
+									"value": "55200",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01165235658",
+									"type": "text"
+								},
+								{
+									"key": "imageId",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/four.png"
+								},
+								{
+									"key": "proveImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/SectionTech.png"
+								},
+								{
+									"key": "paymentReceiptImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/UserRoot.png"
+								},
+								{
+									"key": "bankIdImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/VodagoneCash.png"
+								},
+								{
+									"key": "nameSeamsterOfWithdrawal",
+									"value": "الاايسش",
+									"type": "text"
+								},
+								{
+									"key": "nameAcademicOfWithdrawal",
+									"value": "2033",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "يشسيسشيشسيسشيشس",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/withdrawal-request/send",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"withdrawal-request",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Internal Conversion",
+			"item": [
+				{
+					"name": "Send Internal Conversion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "محمود ",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mh15721812@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "ID",
+									"value": "12345678950620324",
+									"type": "text"
+								},
+								{
+									"key": "educationalPath",
+									"value": "جمعية الصفا الخيرية",
+									"type": "text"
+								},
+								{
+									"key": "seamsterYear",
+									"value": "2015",
+									"type": "text"
+								},
+								{
+									"key": "academicYear",
+									"value": "2024",
+									"type": "text"
+								},
+								{
+									"key": "priceOfSeamsterInternalConversion",
+									"value": "45596655598",
+									"type": "text"
+								},
+								{
+									"key": "priceOfInternalConversion",
+									"value": "55200",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01165235658",
+									"type": "text"
+								},
+								{
+									"key": "imageId",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-03-22 224835.png"
+								},
+								{
+									"key": "paymentReceiptImage",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/two.png"
+								},
+								{
+									"key": "academicNumber",
+									"value": "2033",
+									"type": "text"
+								},
+								{
+									"key": "reason",
+									"value": "يشسيسشيشسيسشيشس",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "dasdsds",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "dassadas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/internal-conversion/send",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"internal-conversion",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Landing Page",
+			"item": [
+				{
+					"name": "Section One",
+					"item": [
+						{
+							"name": "Get Section One",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-one",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-one"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Section One",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "link",
+											"value": "Test Updated",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-one",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-one"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section One",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-one/update/6571b0e843d8c054eece03ed",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-one",
+										"update",
+										"6571b0e843d8c054eece03ed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete From Section 1",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-one/65636eefe742004459fe6ff1",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-one",
+										"65636eefe742004459fe6ff1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section Three",
+					"item": [
+						{
+							"name": "Get Section Three",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-three",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-three"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Section Three",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"date\":\"2022-0dsadsa7-15\",\r\n    \"title\":\"dsadsa\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-three",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-three"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section Three",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Test Updated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-three/update/6571aa6ce4aa829f59ea0d0a",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-three",
+										"update",
+										"6571aa6ce4aa829f59ea0d0a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete From Section 3",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-three/656352abf403a4bd792686dd",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-three",
+										"656352abf403a4bd792686dd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section Four",
+					"item": [
+						{
+							"name": "Get Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Test Title\",\r\n    \"name\":\"Test Name\",\r\n    \"link\":\"Test Link\",\r\n    \"form\":\"Test Form\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add To Array Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Add Name Test\",\r\n    \"link\":\"Add Link Test\",\r\n    \"form\":\"Add Link Test\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four/add-to-arr?id=6568ba31c1b96e596a84fc63",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four",
+										"add-to-arr"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6568ba31c1b96e596a84fc63"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Element Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\":\"Add Link Test Updated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four/update-ele?id=6568b7c7171dc98d75790bc8",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four",
+										"update-ele"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6568b7c7171dc98d75790bc8"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update From Array Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"link\":\"Update Link Arr\",\r\n    \"name\":\"Update arr Name\",\r\n    \"form\":\"Form Update Arr\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four/update-from-arr?id=6568b7c7171dc98d75790bc8&idArr=6568b7c7171dc98d75790bc9",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four",
+										"update-from-arr"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6568b7c7171dc98d75790bc8"
+										},
+										{
+											"key": "idArr",
+											"value": "6568b7c7171dc98d75790bc9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Form Array Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four/delete-from-arr?id=6568b7c7171dc98d75790bc8&idArr=6568b82b22c31304233c64e2",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four",
+										"delete-from-arr"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6568b7c7171dc98d75790bc8"
+										},
+										{
+											"key": "idArr",
+											"value": "6568b82b22c31304233c64e2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Element From Section Four",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-four/delete-ele?id=6568b7c7171dc98d75790bc8",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-four",
+										"delete-ele"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "6568b7c7171dc98d75790bc8"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section Five",
+					"item": [
+						{
+							"name": "Get Section Five",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-five",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-five"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Section Five",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "dsadas",
+											"type": "text"
+										},
+										{
+											"key": "jobTitle",
+											"value": "dsadsa",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "sadasd",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/cPanel.png",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-five",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-five"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete From Section 5",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-five/6574eefda108eae375565655",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-five",
+										"6574eefda108eae375565655"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section Five",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-05-05 144817.png"
+										},
+										{
+											"key": "name",
+											"value": "Test",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-five/65635be5125f5f9ab5dc4e32",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-five",
+										"65635be5125f5f9ab5dc4e32"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Section 5",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-five/65635be4125f5f9ab5dc4e2b",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-five",
+										"65635be4125f5f9ab5dc4e2b"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section Six",
+					"item": [
+						{
+							"name": "Get Section Six",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-six",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-six"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Section Six",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/supported.png"
+										},
+										{
+											"key": "title",
+											"value": "avnology",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-six",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-six"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section Six",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/supported.png"
+										},
+										{
+											"key": "title",
+											"value": "Avnology Updated",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-six/update/6571bed54949c194a70a9b85",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-six",
+										"update",
+										"6571bed54949c194a70a9b85"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete From Section 6",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-six/65635e46dd00566c02152e7e",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-six",
+										"65635e46dd00566c02152e7e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Section Seven",
+					"item": [
+						{
+							"name": "Get Section Seven",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-seven",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-seven"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Section Seven",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"link\":\"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-seven",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-seven"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Section Seven",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"link\":\"link Updated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-seven/update/6571c256c244342e04afd1f0",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-seven",
+										"update",
+										"6571c256c244342e04afd1f0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete From Section 7",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/landing-page/section-seven/6571c1d03f579bb59acb6874",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"landing-page",
+										"section-seven",
+										"6571c1d03f579bb59acb6874"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "News",
+					"item": [
+						{
+							"name": "Get All News",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/news/all?type=أكاديمي",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"news",
+										"all"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "أكاديمي"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add New",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "date",
+											"value": "2022-07-12",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "dasdsadsa",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/two.png"
+										},
+										{
+											"key": "description",
+											"value": "sadads",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "achievements",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/news/add",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"news",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update New",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title",
+											"value": "Test",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/two.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/news/update/65636becfb14710d51294da8",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"news",
+										"update",
+										"65636becfb14710d51294da8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific New",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/news/65636becfb14710d51294da8",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"news",
+										"65636becfb14710d51294da8"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete New",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/news/delete/6576e6fa3f2f1040b3c50de4",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"news",
+										"delete",
+										"6576e6fa3f2f1040b3c50de4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All News Without Type",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/news/all/without-type",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"news",
+										"all",
+										"without-type"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Main Title (Report)",
+					"item": [
+						{
+							"name": "Add Main Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mainTitle\":\"Test 2\",\r\n    \"category\":\"G\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/main-report/add",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"main-report",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Specific Report",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/main-report/one/report/656741f800e65461639b6395",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"main-report",
+										"one",
+										"report",
+										"656741f800e65461639b6395"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Main Title",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/main-report/all?category=R",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"main-report",
+										"all"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "R"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Reports",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/main-report/all/report?category=G",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"main-report",
+										"all",
+										"report"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "G"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Main Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"mainTitle\":\"address updated\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/main-report/update/65684fba0e2bfabd463388d9",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"main-report",
+										"update",
+										"65684fba0e2bfabd463388d9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Specific Report",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/main-report/delete/report/6565fb0beddcc1deb32d66d9",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"main-report",
+										"delete",
+										"report",
+										"6565fb0beddcc1deb32d66d9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "No Title (Report)",
+					"item": [
+						{
+							"name": "Add No Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Test2 Name\",\r\n    \"link\":\"Test2 link\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/no-title/add/656741f800e65461639b6395",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"no-title",
+										"add",
+										"656741f800e65461639b6395"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update No Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Test Update\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/no-title/update?id=656741f800e65461639b6395&noTitleId=656743907e76dc9c99062cd6",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"no-title",
+										"update"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "656741f800e65461639b6395"
+										},
+										{
+											"key": "noTitleId",
+											"value": "656743907e76dc9c99062cd6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update No Title Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/no-title/delete?id=656741f800e65461639b6395&noTitleId=656743907e76dc9c99062cd6",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"no-title",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "656741f800e65461639b6395"
+										},
+										{
+											"key": "noTitleId",
+											"value": "656743907e76dc9c99062cd6"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "One Title (Report)",
+					"item": [
+						{
+							"name": "Add One Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"subTitle\":\"Test2 subTitle \",\r\n    \"arrOfPDFs\":[{\r\n    \"name\":\"Test3 Name\",\r\n    \"link\":\"Test3 li0nk\"\r\n    },\r\n    {\r\n    \"name\":\"Test30 Name\",\r\n    \"link\":\"Test30 li0nk\" \r\n    }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/one-title/add/656741f800e65461639b6395",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"one-title",
+										"add",
+										"656741f800e65461639b6395"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update One Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Test Update\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/one-title/update?id=656741f800e65461639b6395&oneTitleId=65675396b42c3f1d5bac61b4&idPdf=65675396b42c3f1d5bac61b5",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"one-title",
+										"update"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "656741f800e65461639b6395"
+										},
+										{
+											"key": "oneTitleId",
+											"value": "65675396b42c3f1d5bac61b4"
+										},
+										{
+											"key": "idPdf",
+											"value": "65675396b42c3f1d5bac61b5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add One Title Pdf",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Add Pdfs\",\r\n    \"link\":\"Add Link\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/api/v1/one-title/update/pdf?id=656741f800e65461639b6395&oneTitleId=65746b26cc9c8939143e5f5f",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"one-title",
+										"update",
+										"pdf"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "656741f800e65461639b6395"
+										},
+										{
+											"key": "oneTitleId",
+											"value": "65746b26cc9c8939143e5f5f"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete One Title",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/one-title/delete?id=656741ca1fa6ceed24e8786d&oneTitleId=656a56ba6328acaab7dc63d7",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"one-title",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "656741ca1fa6ceed24e8786d"
+										},
+										{
+											"key": "oneTitleId",
+											"value": "656a56ba6328acaab7dc63d7"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update No Title PDF",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{JWT}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}/api/v1/one-title/delete/pdf?id=656741f800e65461639b6395&oneTitleId=656755f237336fe7655ed04a&idPdf=656755f237336fe7655ed04c",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"one-title",
+										"delete",
+										"pdf"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "656741f800e65461639b6395"
+										},
+										{
+											"key": "oneTitleId",
+											"value": "656755f237336fe7655ed04a"
+										},
+										{
+											"key": "idPdf",
+											"value": "656755f237336fe7655ed04c"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Landing Page",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/landing-page/all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"landing-page",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

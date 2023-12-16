@@ -1,0 +1,33 @@
+import userRoute from './user.route.js';
+import programRoute from './program.route.js';
+import studentRoute from './student.route.js';
+import departmentRoute from './department.route.js';
+import externalConversionRoute from './external.conversion.route.js';
+import delayStudyRoute from './delay.study.route.js';
+import withdrawalRequestRoute from './withdrawal.request.route.js';
+import internalConversionRoute from './internal.conversion.route.js';
+import landingPageRoute from './landing.page.route.js';
+import newsRoute from './new.route.js';
+import mainTitle from './main.report.route.js';
+import noTitle from './no.report.route.js';
+import oneTitle from './one.report.route.js';
+import complaintRoute from './complaint.route.js';
+import jobRoute from './job.route.js';
+
+export default (app) => {
+  app.use('/api/v1/department', departmentRoute);
+  app.use('/api/v1/auth', userRoute);
+  app.use('/api/v1/program', programRoute);
+  app.use('/api/v1/student', studentRoute);
+  app.use('/api/v1/external-conversion', externalConversionRoute);
+  app.use('/api/v1/delay-study', delayStudyRoute);
+  app.use('/api/v1/withdrawal-request', withdrawalRequestRoute);
+  app.use('/api/v1/internal-conversion', internalConversionRoute);
+  app.use('/api/v1/landing-page', landingPageRoute);
+  app.use('/api/v1/news', newsRoute);
+  app.use('/api/v1/main-report', mainTitle);
+  app.use('/api/v1/no-title', noTitle);
+  app.use('/api/v1/one-title', oneTitle);
+  app.use('/api/v1/complaint', complaintRoute);
+  app.use('/api/v1/job', jobRoute);
+};
