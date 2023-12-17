@@ -13,6 +13,7 @@ import noTitle from './no.report.route.js';
 import oneTitle from './one.report.route.js';
 import complaintRoute from './complaint.route.js';
 import jobRoute from './job.route.js';
+import applyJob from './apply.job.route.js';
 
 export default (app) => {
   app.use('/api/v1/department', departmentRoute);
@@ -30,4 +31,5 @@ export default (app) => {
   app.use('/api/v1/one-title', oneTitle);
   app.use('/api/v1/complaint', complaintRoute);
   app.use('/api/v1/job', jobRoute);
+  app.use('/api/v1/apply-job', applyJob);
 };

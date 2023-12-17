@@ -2311,7 +2311,7 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/two.png"
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-03-22 224835.png"
 										},
 										{
 											"key": "description",
@@ -2320,7 +2320,7 @@
 										},
 										{
 											"key": "type",
-											"value": "achievements",
+											"value": "أكاديمي",
 											"type": "text"
 										}
 									]
@@ -2366,12 +2366,12 @@
 										{
 											"key": "image",
 											"type": "file",
-											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/two.png"
+											"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/four.png"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{URL}}/api/v1/news/update/65636becfb14710d51294da8",
+									"raw": "{{URL}}/api/v1/news/update/6576ec7fa00ef034a9c802d9",
 									"host": [
 										"{{URL}}"
 									],
@@ -2380,7 +2380,7 @@
 										"v1",
 										"news",
 										"update",
-										"65636becfb14710d51294da8"
+										"6576ec7fa00ef034a9c802d9"
 									]
 								}
 							},
@@ -3046,6 +3046,511 @@
 								"v1",
 								"landing-page",
 								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Complaint",
+			"item": [
+				{
+					"name": "Add Complaint",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Test name\",\r\n    \"email\":\"sdad@gmail.com\",\r\n    \"class\":\"أستاذ\",\r\n    \"location\":\"tset location\",\r\n    \"complaint\":\"test complaint\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/complaint/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"complaint",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Complaint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/complaint/one/657ea1d72f798afa32889dfb",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"complaint",
+								"one",
+								"657ea1d72f798afa32889dfb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Complaint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/complaint/all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"complaint",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Specific Complaint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/complaint/delete/657ea1d72f798afa32889dfb",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"complaint",
+								"delete",
+								"657ea1d72f798afa32889dfb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Add Job",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test name job",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-07-18 150259.png",
+										"/C:/Users/MTM/OneDrive/Pictures/Screenshots/VodagoneCash.png"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/job/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/job/all",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Job",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/job/one/657ea3d1da66c0653c0c35a5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"one",
+								"657ea3d1da66c0653c0c35a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Updated name",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/screerDolly.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/job/update/657ea3d1da66c0653c0c35a5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"update",
+								"657ea3d1da66c0653c0c35a5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Specific",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/job/delete/657ea3d1da66c0653c0c35a5",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"job",
+								"delete",
+								"657ea3d1da66c0653c0c35a5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Apply Job",
+			"item": [
+				{
+					"name": "Add Apply Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "job",
+									"value": "657ebab056f4ff8d0be758e0",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Test name",
+									"type": "text"
+								},
+								{
+									"key": "nationality",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "ID",
+									"value": "415123",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "0115469852",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "academicQualification",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "trainingCourse",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "skills",
+									"value": "te and te and te",
+									"type": "text"
+								},
+								{
+									"key": "experience",
+									"value": "te te te tet ete ",
+									"type": "text"
+								},
+								{
+									"key": "imgAcademicQualification",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/screerDolly.png"
+								},
+								{
+									"key": "imgResume",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/UserRoot.png"
+								},
+								{
+									"key": "imgIdBank",
+									"type": "file",
+									"src": "/C:/Users/MTM/OneDrive/Pictures/Screenshots/Screenshot 2023-07-18 150259.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/apply-job/add",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apply-job",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Apply Jobs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/apply-job/all/657ebab056f4ff8d0be758e0",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apply-job",
+								"all",
+								"657ebab056f4ff8d0be758e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Apply Job",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/apply-job/one/657ebabc56f4ff8d0be758e4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apply-job",
+								"one",
+								"657ebabc56f4ff8d0be758e4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Specific Apply Job",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/apply-job/delete/657ebae956f4ff8d0be758f3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apply-job",
+								"delete",
+								"657ebae956f4ff8d0be758f3"
 							]
 						}
 					},

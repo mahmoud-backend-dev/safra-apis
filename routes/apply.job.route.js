@@ -22,6 +22,8 @@ router.post(
       { name: "imgResume", maxCount: 1 },
       { name: "imgIdBank", maxCount: 1 },
     ],
+    'apply-job',
+    'image'
   ),
   addApplyJobValidator,
   addApplyJob

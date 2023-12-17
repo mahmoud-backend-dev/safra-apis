@@ -10,7 +10,6 @@ const multerOptions = (path,type) => {
             cb(null, pathOs.join('uploads',path))
         },
         filename: function (req, file, cb) {
-            // category-{id}-Date.now().jpeg
             const ext = file.mimetype.split('/')[1];
             const filename = `${path.replace(/[\/-]/g, '-') }-${uuid()}.${ext}`;
             cb(null, filename);

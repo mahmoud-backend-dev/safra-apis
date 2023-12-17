@@ -7,7 +7,7 @@ import Job from "../models/Job.js";
 import { unlink } from 'fs/promises';
 import ApplyJob from "../models/ApplyJob.js";
 
-const sanitizeJob = (job) => ({ name: job.name, image: job.image, status: job.status })
+const sanitizeJob = (job) => ({ _id: job._id, name: job.name, image: job.image, status: job.status });
 
 export const addJob = asyncHandler(async (req, res) => {
   const job = await Job.create({
@@ -58,8 +58,8 @@ export const getAllJobs = asyncHandler(async (req, res) => {
 export const deleteSpecificJob = asyncHandler(async (req, res) => {
   const job = await Job.findByIdAndRemove(req.params.id);
   await unlink(`./uploads/jobs/${job.image.split('/').pop()}`);
-  if(job.applyJob.length > 0) {
-    await Promise.all(job.applyJob.forEach(async (idApplyJob) => {
+  if (job.applyJob.length > 0) {
+    await Promise.all(job.applyJob.map(async (idApplyJob) => {
       const applyJob = await ApplyJob.findByIdAndRemove(idApplyJob);
       await unlink(`./uploads/apply-job/${applyJob.imgAcademicQualification.split('/').pop()}`);
       await unlink(`./uploads/apply-job/${applyJob.imgResume.split('/').pop()}`);

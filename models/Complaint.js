@@ -9,12 +9,12 @@ const complaintSchema = new Schema({
   },
   class: {
     type: String,
-    required: [true,'class is required'],
+    required: [true, 'class is required'],
+    enum: ['طالب', 'أستاذ', 'إدارى', 'غير ذلك'],
   },
   location: {
     type: String,
     required: [true, 'location is required'],
-    enum: ['طالب', 'أستاذ', 'إدارى', 'غير ذلك'],
   },
   complaint: {
     type: String,

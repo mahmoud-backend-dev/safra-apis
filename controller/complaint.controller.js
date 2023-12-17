@@ -30,7 +30,7 @@ export const getSpecificComplaint = asyncHandler(async (req, res) => {
 })
 
 export const getAllComplaints = asyncHandler(async (req, res) => {
-  const { limit, pagination, skip } = await setPagination(req, Complaint);
+  const { limit, pagination, skip } = await setPagination(Complaint, req);
   const complaints = await Complaint.find().limit(limit).skip(skip);
   res.status(StatusCodes.OK).json({
     success: "Success",
